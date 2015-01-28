@@ -27,7 +27,7 @@ import requests
 from datetime import datetime
 import os
 
-server = "http://kylenet.dyndns.org:8080/temperature" #webserver you wish to push info to
+server = "http://tempserver.example.com" #webserver you wish to push info to
 sample_time = 5 #how many seconds we want to wait before getting temp data
 
 def main():

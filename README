@@ -1,0 +1,29 @@
+So you want to use the logger? You'll need a few libs first.
+
+Local computer libs:
+-time
+-serial
+-requests
+-datetime
+-os
+
+Server libs:
+-bottle
+
+Once that is setup, you need to do a bit of hacking with the Arduino. The Arduino
+can interface with numerous dallas temperature sensors. However you need to know
+the HEX address of each sensor. You need to run the tempsensor_search function on
+the arduino with each sensor plugged in seperately. Open the serial console once 
+you load the arduino with the sketch. The first line should have 8 groups with 2 
+hexadecimal digits each. Copy/paste or write those digits down and make note if 
+this is the temp sensor for 'in' or 'out'. Do the same with the second temp sensor.
+Open up TempSensorCode.ino and edit the values around line 20 and 21 to match what
+you recorded eariler.
+
+If you have detection problems, make sure the sensor wire is in arduino pin 3.
+
+For the python script, please make sure that you edit server and sample_time which
+are around line 30 in the file tempserial.py. Once you do that, you should be able
+to monitor your temp on the local output.
+
+Details for the webserver will be in Webserver.README, still todo.

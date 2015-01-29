@@ -1,0 +1,9 @@
+So you want your stuff publicly accessible eh?
+
+So there is the assumption that you have a working publicly accessible web server that you have shell access to.
+You need bottle on the server to get everything working, and you need python of course :)
+
+The default config binds bottle to all interfaces on a particular port. So if you have the domain name
+http://foobar.thingy.com then you will access bottle via http://foobar.thingy.com:8080/temp
+
+Also to note, the program accepts post requests from http://foobar.thingy.com:8080/temperature, however, there is no data validation, and no authentacation, so this is best for small events/short periods of time.

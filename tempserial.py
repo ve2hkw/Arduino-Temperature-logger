@@ -89,7 +89,7 @@ def readtemp(port, internet):
 		tempdata = serialport.readline()
 		curtime = datetime.utcnow().ctime() #current time UTC
 		
-		localtempdata = str(curtime) + ", " + str(tempdata)
+		localtempdata = str(curtime) + "C, " + str(tempdata) + "C"
 		
 		#text formating starts here
 		cutcurtime = curtime[4:19]

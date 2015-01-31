@@ -123,4 +123,7 @@ def folder_setup(): #checks for the datalog folder, and if it isn't there, make 
 	
 		
 if __name__=='__main__':
+	if server == "http://tempserver.example.com":
+		print("You haven't edited lines 30 and 31 yet, please do so before continuing\nIf you don't want a webserver, just change the server variable to something other than what is there")
+		exit()
 	main()

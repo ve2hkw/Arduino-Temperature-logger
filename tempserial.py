@@ -29,6 +29,8 @@ import os
 
 server = "http://tempserver.example.com" #webserver you wish to push info to
 sample_time = 5 #how many seconds we want to wait before getting temp data
+in_sensor_location = "In:"
+out_sensor_location = "Out:"
 
 def main():
 	print('Hi there, please choose one of the following ports:') 
@@ -89,7 +91,7 @@ def readtemp(port, internet):
 		tempdata = serialport.readline()
 		curtime = datetime.utcnow().ctime() #current time UTC
 		
-		localtempdata = str(curtime) + "C, " + str(tempdata) + "C"
+		#localtempdata = str(curtime) + "C, " + str(tempdata) + "C"
 		
 		#text formating starts here
 		cutcurtime = curtime[4:19]
@@ -100,6 +102,19 @@ def readtemp(port, internet):
 		shortoutdoortemp = outdoortemp[5:]
 		#text formating ends about here
 		
+		splitoutdoor = outdoortemp.split(":")
+		outdoortemp = out_sensor_location + splitoutdoor[1]
+		splitindoortemp = indoortemp.split(":")
+		indoortemp = in_sensor_location + splitindoortemp[1]
+		
+		outdoortemp = outdoortemp.strip()
+		outdoortemp = outdoortemp + "C\n"
+		
+		#print(outdoortemp) #debugging
+		#print(indoortemp + ".")  #debugging
+		
+		localtempdata = curtime + ", " + indoortemp +'C, ' + outdoortemp
+		tempdata = indoortemp + 'C, ' + outdoortemp
 		#print(cutcurtime + " " + indoortemp + " " + outdoortemp)
 		filename.write(cutcurtime + ", " + shortindoortemp + ", " + shortoutdoortemp) #writes the temp data to the log file
 		

@@ -134,9 +134,6 @@ def folder_setup(): #checks for the datalog folder, and if it isn't there, make 
 	if not os.path.isdir('datalog/'):
 		os.makedirs("datalog/")
 		print("loging directory created")
-
-def fun_stuff():
-	print("Testing Git stuff, please ignore :)")
 	
 		
 if __name__=='__main__':
